@@ -91,9 +91,11 @@ while not optLogin(option):
     separator()
     option = input("Select: ")
 else:
+#-------------------------------------------
+#                   LOGIN
+#-------------------------------------------
     if (option == optionLogin[0]):
         userLogin = input("User: ")
-        
         while not isUser(userLogin):
             separator()
             print("Invalid user")
@@ -124,10 +126,29 @@ else:
                 else:
                     print("OK")
                     
+#-------------------------------------------
+#                   REGISTER
+#-------------------------------------------           
+    elif (option == optionLogin[1]):
+        print("User registration")
+        separator()
+        newUser = input("Enter user: ")
+        while isUser(newUser):
+            separator()
+            print(newUser,"is already in use")
+            newUser = input("Enter user: ")
+            separator()
+        else:
+            newPassword = input("Enter password: ")
+            confirmPassword = input("Confirm password: ")
+            while newPassword != confirmPassword:
+                separator()
+                print("Passwords do not match")
+                newPassword = input("Enter password: ")
+                confirmPassword = input("Confirm password: ")
+            else:
+                print("OK")
                 
-                
-            
-#    elif (option == optionLogin[1]):      
             
             
         
