@@ -28,7 +28,7 @@ regularExp = re.compile(r'^[0-9]+([,][0-9]+)?$')
 
 userList = ["laoming","baki01"]
 passwordList = ["5702471","123456"]
-moneyList = [125,250,352]
+moneyList = [125,250]
 coinList = []
 coin = ""
 newUser = ""
@@ -150,10 +150,10 @@ else:
                 randomMoney = random.randint(1, 1000)
                 userList.append(newUser)
                 passwordList.append(newPassword)
-                moneyList.append(float(randomMoney))
+                moneyList.append(randomMoney)
                 os.system('cls')
                 separator()
-                print("                  LOGIN")
+                print("     LOGIN")
                 separator()
                 userLogin = input("User: ")
                 while not isUser(userLogin):
