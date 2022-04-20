@@ -1,8 +1,9 @@
-from turtle import position
-from urllib import response
+import random
 import requests
 import re
 from datetime import datetime
+import os, sys
+
 
 #Key API access
 COINMARKET_API_KEY = "89f98e0b-a119-494b-8334-a4a8602d7c24"
@@ -134,7 +135,6 @@ else:
         separator()
         newUser = input("Enter user: ")
         while isUser(newUser):
-            separator()
             print(newUser,"is already in use")
             newUser = input("Enter user: ")
             separator()
@@ -147,8 +147,47 @@ else:
                 newPassword = input("Enter password: ")
                 confirmPassword = input("Confirm password: ")
             else:
-                print("OK")
+                randomMoney = random.randint(1, 1000)
+                userList.append(newUser)
+                passwordList.append(newPassword)
+                moneyList.append(float(randomMoney))
+                os.system('cls')
+                separator()
+                print("                  LOGIN")
+                separator()
+                userLogin = input("User: ")
+                while not isUser(userLogin):
+                    separator()
+                    print("Invalid user")
+                    separator()
+                    userLogin = input("User: ")
+                else:
+                    separator()
+                    passwordLogin = input("Password: ")
+                    index = getPosition(userLogin,userList)
+                    while not passwordLogin == passwordList[index]:
+                        separator()
+                        print("Invalid password")
+                        passwordLogin = input("Password: ")
+                    else:
+                        separator()
+                        print("Wellcome",userLogin)
+                        print("Your money: ",moneyList[index],"$")
+                        separator()
+                        options()
+                        separator()
+                        option = input("Select: ")
+                        while not optMain(option):
+                            print("Invalid option")
+                            separator()
+                            options()
+                            separator()
+                            option = input("Select: ")
+                        else:
+                            print("OK")
+
                 
+                                
             
             
         
