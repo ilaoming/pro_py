@@ -118,6 +118,16 @@ else:
                 options()
                 separator()
                 option = input("Select: ")
+                
+                while not optionMain(option):
+                    separator()
+                    print("Invalid option")
+                    option = input("Select: ")
+                    separator()
+                else:
+                    if (option == optionMain[0]):
+                        print("OK")
+                    
                 while not optMain(option):
                     print("Invalid option")
                     separator()
